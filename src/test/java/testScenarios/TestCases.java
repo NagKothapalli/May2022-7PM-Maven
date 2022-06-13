@@ -1,6 +1,9 @@
 package testScenarios;
 
+import java.io.File;
+
 import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import pageObjects.CancelTicket;
 import pageObjects.Home;
@@ -10,14 +13,27 @@ import pageObjects.TrackService;
 
 public class TestCases //extends Login,Home  - multiple inheritance
 {
-	Login login = new Login();
-	Home home = new Home();
-	TicketStatus ticketStatus = new TicketStatus();
-	TrackService trackService = new TrackService();
-	CancelTicket cancelTicket = new CancelTicket();
+	ChromeDriver driver;
+	Login login ;
+	Home home ;
+	TicketStatus ticketStatus ;
+	TrackService trackService ;
+	CancelTicket cancelTicket ;
+	public TestCases()
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
+		driver = new ChromeDriver();
+		login = new Login(driver);
+		home = new Home(driver);
+		ticketStatus = new TicketStatus(driver);
+		trackService = new TrackService(driver);
+		cancelTicket = new CancelTicket(driver);
+	}
+	
 	@Test
 	public void bookBusTicketAndPrint()
 	{
+		
 		//launch , login , bookTicket , printTicket , logout , close
 		System.out.println("Test Case : BookBusTicketAndPrint");
 		login.launchApplication();
