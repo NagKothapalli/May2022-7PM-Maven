@@ -32,8 +32,7 @@ public class TestCases //extends Login,Home  - multiple inheritance
 	
 	@Test
 	public void bookBusTicketAndPrint()
-	{
-		
+	{		
 		//launch , login , bookTicket , printTicket , logout , close
 		System.out.println("Test Case : BookBusTicketAndPrint");
 		login.launchApplication();
@@ -52,6 +51,7 @@ public class TestCases //extends Login,Home  - multiple inheritance
 		login.loginToApplication();
 		home.bookTicket();
 		ticketStatus.checkStatus();
+		home.navigateToHome();
 		login.logoutFromApplication();
 		login.closeApplication();
 	}

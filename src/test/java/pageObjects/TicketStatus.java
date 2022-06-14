@@ -16,9 +16,15 @@ public class TicketStatus
 		prop = new ReadProperties("TestData/ApsrtcDev.properties");
 		appUtils = new AppUtilities(driver);
 	}
+	//***************Xpath*********************
+	String checkStatus = "//a[@title='Ticket Status']";
+	String ticketNumber = "//input[@name='id' and @class='searchTktCancel']";
+	//****************************************
 	public void checkStatus()
 	{
 		System.out.println("RC : Check the Bus Ticket Status");
+		appUtils.clickElement(checkStatus);
+		appUtils.enterText(ticketNumber, "12345678");		
 	}
 
 }

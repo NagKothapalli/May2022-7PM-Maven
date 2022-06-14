@@ -40,6 +40,11 @@ public class Home
 		appUtils.clickElement("//a[@title='Home']");
 	}
 	
+	public void navigateToHome()
+	{
+		appUtils.clickElement("//a[@title='Home']");
+	}
+	
 	public void selectDate(String jDate)
 	{
 		//Dynamic xpath
