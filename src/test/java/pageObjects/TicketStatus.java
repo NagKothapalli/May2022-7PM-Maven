@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import appUtilities.AppUtilities;
@@ -7,10 +8,10 @@ import generalUtilities.ReadProperties;
 
 public class TicketStatus
 {
-	ChromeDriver driver; //null
+	WebDriver driver; //null
 	ReadProperties prop;
 	AppUtilities appUtils;
-	public TicketStatus(ChromeDriver driver) //1234
+	public TicketStatus(WebDriver driver) //1234
 	{
 		this.driver = driver; // a=a; a=b;
 		prop = new ReadProperties("TestData/ApsrtcDev.properties");

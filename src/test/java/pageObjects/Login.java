@@ -7,11 +7,11 @@ import generalUtilities.ReadProperties;
 
 public class Login
 {
-	ChromeDriver driver; //null
+	WebDriver driver; //null
 	ReadProperties prop;
-	public Login(ChromeDriver driver) //1234
+	public Login(WebDriver driver2) //1234
 	{
-		this.driver = driver; // a=a; a=b;
+		this.driver = driver2; // a=a; a=b;
 		//driver = mydriver;
 		prop = new ReadProperties("TestData/ApsrtcDev.properties");
 	}

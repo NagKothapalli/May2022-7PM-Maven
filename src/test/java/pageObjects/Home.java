@@ -10,10 +10,10 @@ import generalUtilities.ReadProperties;
 
 public class Home
 {
-	ChromeDriver driver; //null
+	WebDriver driver; //null
 	ReadProperties prop;
 	AppUtilities appUtils;
-	public Home(ChromeDriver driver) //1234
+	public Home(WebDriver driver) //1234
 	{
 		this.driver = driver; // a=a; a=b;
 		prop = new ReadProperties("TestData/ApsrtcDev.properties");

@@ -3,8 +3,12 @@ package testScenarios;
 import java.io.File;
 
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import generalUtilities.ReadProperties;
 import pageObjects.CancelTicket;
 import pageObjects.Home;
 import pageObjects.Login;
@@ -13,16 +17,37 @@ import pageObjects.TrackService;
 
 public class TestCases //extends Login,Home  - multiple inheritance
 {
-	ChromeDriver driver;
+	WebDriver driver;
 	Login login ;
 	Home home ;
 	TicketStatus ticketStatus ;
 	TrackService trackService ;
 	CancelTicket cancelTicket ;
+	ReadProperties configData;
 	public TestCases()
 	{
-		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
-		driver = new ChromeDriver();
+		configData = new ReadProperties("TestData/Config.properties");
+		if(configData.readData("Browser").equalsIgnoreCase("CHROME"))
+		{
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+		else if(configData.readData("Browser").equalsIgnoreCase("FIREFOX"))
+		{
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
+			driver = new FirefoxDriver();
+		}
+		else if(configData.readData("Browser").equalsIgnoreCase("IE"))
+		{
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
+			driver = new InternetExplorerDriver();
+		}
+		else
+		{
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+		
 		login = new Login(driver);
 		home = new Home(driver);
 		ticketStatus = new TicketStatus(driver);
