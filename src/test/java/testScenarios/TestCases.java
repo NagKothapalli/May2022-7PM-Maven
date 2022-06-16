@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import appUtilities.DriverSetUp;
 import generalUtilities.ReadProperties;
 import pageObjects.CancelTicket;
 import pageObjects.Home;
@@ -26,28 +27,9 @@ public class TestCases //extends Login,Home  - multiple inheritance
 	ReadProperties configData;
 	public TestCases()
 	{
-		configData = new ReadProperties("TestData/Config.properties");
-		if(configData.readData("Browser").equalsIgnoreCase("CHROME"))
-		{
-			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
-			driver = new ChromeDriver();
-		}
-		else if(configData.readData("Browser").equalsIgnoreCase("FIREFOX"))
-		{
-			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
-			driver = new FirefoxDriver();
-		}
-		else if(configData.readData("Browser").equalsIgnoreCase("IE"))
-		{
-			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
-			driver = new InternetExplorerDriver();
-		}
-		else
-		{
-			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
-			driver = new ChromeDriver();
-		}
-		
+		//DriverSetUp driverSetUp = new DriverSetUp();
+		//driver = driverSetUp.getWebDriver();
+		driver = new DriverSetUp().getWebDriver();
 		login = new Login(driver);
 		home = new Home(driver);
 		ticketStatus = new TicketStatus(driver);

@@ -15,6 +15,13 @@ public class TestSuites extends TestCases
 	@Test
 	public void runUserChoice()
 	{
+		//************************Execution Details********************
+		System.out.println("************************Execution Details********************");
+		System.out.println("Execution Type : " + configData.readData("ExecutionType").toUpperCase());
+		System.out.println("Testing Type :" + configData.readData("TestingType").toUpperCase());
+		System.out.println("Browser Name :" + configData.readData("Browser").toUpperCase());
+		System.out.println("****************************************************************");
+		//*****************************************************************
 		if(configData.readData("TestingType").equalsIgnoreCase("SMOKE"))
 		{
 			smokeSuite();
