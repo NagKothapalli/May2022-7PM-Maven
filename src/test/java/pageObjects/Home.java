@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +20,7 @@ public class Home
 		this.driver = driver; // a=a; a=b;
 		prop = new ReadProperties("TestData/ApsrtcDev.properties");
 		appUtils = new AppUtilities(driver);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	//*****************XPATHS*******************
 		String sourceXpath = "//input[@name='source']";
@@ -32,10 +35,12 @@ public class Home
 		appUtils.enterText(destinationXpath,prop.readData("ToCity"));
 		CommonFunctions.fixedWait(1);
 		appUtils.clickEnter();
-		driver.findElement(By.xpath("//input[@name='txtJourneyDate']")).click();
+		appUtils.clickElement("//input[@name='txtJourneyDate']");
+		//driver.findElement(By.xpath("//input[@name='txtJourneyDate']")).click();
 		//select date of journey
 		selectDate(prop.readData("JDate"));
-		driver.findElement(By.xpath("//input[@name='searchBtn']")).click();
+		appUtils.clickElement("//input[@name='searchBtn']");
+		//driver.findElement(By.xpath("//input[@name='searchBtn']")).click();
 		CommonFunctions.fixedWait(1);
 		appUtils.clickElement("//a[@title='Home']");
 	}

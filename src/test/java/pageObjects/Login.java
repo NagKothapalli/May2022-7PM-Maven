@@ -1,8 +1,11 @@
 package pageObjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import generalUtilities.CommonFunctions;
 import generalUtilities.ReadProperties;
 
 public class Login
@@ -14,11 +17,13 @@ public class Login
 		this.driver = driver2; // a=a; a=b;
 		//driver = mydriver;
 		prop = new ReadProperties("TestData/ApsrtcDev.properties");
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
 	public void launchApplication()
 	{
-		System.out.println("RC : Launch Application");		
+		System.out.println("RC : Launch Application");			
+		//CommonFunctions.fixedWait(30);
 		driver.get(prop.readData("URL")); //null.get() - nullPointerException
 	}
 	public void loginToApplication()
