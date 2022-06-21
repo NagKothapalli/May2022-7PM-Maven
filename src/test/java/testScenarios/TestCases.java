@@ -1,13 +1,8 @@
 package testScenarios;
 
-import java.io.File;
-
-import org.junit.Test;
+//import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-
+import org.testng.annotations.Test;
 import appUtilities.DriverSetUp;
 import generalUtilities.ReadProperties;
 import pageObjects.CancelTicket;
